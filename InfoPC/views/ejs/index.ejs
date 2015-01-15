@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<title>VietViet</title>
+		<meta charset="utf-8">
+	    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="/css/index.css" rel="stylesheet">
+	    <script src="/js/jquery-2.1.3.min.js"></script>
+	    <script src="/js/bootstrap.min.js"></script>
+	    <script src="/js/main.js"></script>
+	</head>
+	<body>
+	<header>
+		<h1> Server Info </h1>
+	</header>
+	<section>
+		<ul class="nav nav-pills">
+		  <li role="presentation" id="basic" class="active"><a href="#basic">Basic</a></li>
+		  <li role="presentation" id="memory"><a href="#memory">Memory</a></li>
+		  <li role="presentation" id="process"><a href="#process">Process</a></li>
+		</ul>
+
+		<table class="table basic">
+		  <tr>
+		    <th>Name</th>
+		    <th>Detail</th>		
+		  </tr>
+		  <tr>
+		  	<td>Model</td>
+		  	<td><%= info.model %></td>
+		  </tr>
+		  <tr>
+		  	<td>Speed</td>
+		  	<td><%= info.speed %></td>
+		  </tr>
+		  <tr>
+		  	<td>Hostname</td>
+		  	<td><%= info.hostname %></td>
+		  </tr>
+		  <tr>
+		  	<td>Operator</td>
+		  	<td><%= info.operator %></td>
+		  </tr>
+		</table>
+
+		<table class="table memory">
+		  <tr>
+		    <th>Name</th>
+		    <th>Detail</th>		
+		  </tr>
+		  <tr>
+		  	<td>Total Disk</td>
+		  	<td><%= info.total %></td>
+		  </tr>
+		  <tr>
+		  	<td>Free Disk</td>
+		  	<td><%= info.free %></td>
+		  </tr>
+		  <tr>
+		  	<td>Total RAM</td>
+		  	<td><%= info.totalmem %></td>
+		  </tr>
+		  <tr>
+		  	<td>Free RAM</td>
+		  	<td><%= info.freemem %></td>
+		  </tr>
+		</table>
+		<table class="table process">
+			<pre id="listProcess" class="process"></pre>
+			<!-- <h3>COMING SOON</h3> -->
+			<script>
+			  $.ajax({url:"/process",success:function(result){
+			  	$("#listProcess").text(result);
+			  }});
+			</script>
+		</table>
+		
+	</section>
+	<footer>
+	</footer>
+	</body>
+</html>
+
